@@ -1,0 +1,46 @@
+.homePage{
+    padding: 20px;
+    text-align: center;
+}
+
+.cardsWrapper{   
+padding: 10px;
+width: 100%;
+}
+
+.moviepreview{
+    width: 100%;
+    height: auto;
+   
+}
+
+.moviepreview img{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.moviepreview h4 {
+    margin-top: 10;
+   
+}
+.slick-slide{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favoriteMovieSection{
+    margin-top: 40px;
+
+}
+
+.favoriteMovieSection h4{
+    margin-top: 20px;
+    
+}
+
+.favoriteMovieSection p{
+font-size: 15px;    
+}

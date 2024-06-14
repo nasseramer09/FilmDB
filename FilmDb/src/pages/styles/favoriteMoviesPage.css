@@ -1,0 +1,28 @@
+.favoritePage{
+    padding: 20px;
+    text-align: center;
+}
+
+.movieGrid{
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+p{
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.noFavoMessage{
+    text-align: center;
+    padding: 16px;
+    font-size: 25px;
+    font-weight: bold;
+
+
+}
+
