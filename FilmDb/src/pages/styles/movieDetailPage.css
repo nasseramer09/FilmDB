@@ -1,0 +1,52 @@
+.movieDetailPage{
+    padding: 20px;
+    max-width: 800px;
+    margin: 0;
+}
+.title{
+    background-color: #18353F;
+}
+
+.movieHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.addToFavorite{
+    display: flex;
+    align-items: center;
+    background-color:#3c849c;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+
+}
+
+.addToFavorite span{
+  margin-left: 10px;
+
+}
+
+.moviePoster{
+    flex: 1;
+    border-radius: 10px;
+
+
+}
+
+.movieTrailer{
+margin-top: 40px;
+text-align: center;
+}
+
+.movieTrailer iframe{
+    padding: 10px;
+    width: 100%;
+    max-width: 560px;
+    border-radius: 10px;
+    border: 1px solid red;
+}

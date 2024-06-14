@@ -1,38 +1,25 @@
 import { useEffect } from 'react';
 import MovieCard from '../components/MovieCard';
 import useMovieStore from '../stores/useMovieStore';
-import axios from 'axios';
+import './styles/movieList.css'
 
 
 function MovieList() {
 
-  const movies=useMovieStore((state)=>state.movies);
-  const setMovies=useMovieStore((state)=>state.setMovies);
+  const movies = useMovieStore((state) => state.movies);
+  const getMovies = useMovieStore((state) => state.getMovies);
 
   useEffect(()=>{
-    const getMovies = async ()=>{
-      try{
-        const response = await axios.get(' http://localhost:8080/api/keys');
-        const apiKey=response.data.data;
-        console.log(apiKey)
-
-        const movieResponse= await axios.get(`http://localhost:8080/api/movies?key=${apiKey}`);
-        setMovies(movieResponse.data.data)
-        console.log('detta är movierespons',movieResponse.data.data)
-      }catch(error){
-        console.log(error)
-      }
-    };
     getMovies();
-  },[setMovies])
+  },[getMovies]);
 
-  return (
-    <div>
-      
-    
-    {
-      movies.map((movie)=>(
-        <MovieCard movies={{
+  return (<section className="movieListContainer">
+   <h1 className='movieListName'>Movie List</h1>  
+   <div className='movieGridList'> 
+    <> {
+     movies.map((movie)=>(
+        
+        <MovieCard key={movie.imdbid} movies={{
           imdbid: movie.imdbid,
           is_favorite: false,
           poster: movie.poster,
@@ -41,8 +28,12 @@ function MovieList() {
         }} />
       ))
     }
-
+    <h1>{movies.length}</h1>
+</> 
     </div>
+
+  </section>
+
   )
 }
 

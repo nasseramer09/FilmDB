@@ -1,4 +1,4 @@
 type User={
-    userName:string;
+    username:string;
     password:string;
 }
