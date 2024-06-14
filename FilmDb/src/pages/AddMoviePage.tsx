@@ -6,22 +6,28 @@ import { useNavigate } from "react-router-dom";
 
 
 function AddMoviePage() {
-const  [title, setTitle]=useState('');
-const [poster, setPoster]=useState('');
-const [trailerlink, setTrailerLink]=useState('');
-const addMovie=useMovieStore((state)=>state.addMovie);
-const navigate=useNavigate();
+const  [title, setTitle] = useState('');
+const [poster, setPoster] = useState('');
+const [trailerlink, setTrailerLink] = useState('');
+const addMovie = useMovieStore((state) => state.addMovie);
+const navigate = useNavigate();
 
 
-const handleAddMovie = async ()=>{
+const handleAddMovie = async () => {
     if(title && poster && trailerlink){
-        await addMovie({
-            title, poster, trailer_link: trailerlink,
-            is_favorite: false
-        });
+
+        const newMovie = {
+            title,
+            poster,
+            trailer_link : trailerlink
+        };
+        await addMovie(newMovie);
+        
         setTitle('');
         setPoster('');
         setTrailerLink('');
+
+        console.log(title, poster, trailerlink)
         
         navigate('/MovieList')
 

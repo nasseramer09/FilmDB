@@ -66,7 +66,7 @@ const useMovieStore=create<MovieStore>((set, get)=>({
 
             const response = await axios.post(`http://localhost:8080/api/movies?key=${state.apiKey}`, movie);
             const newlyAddMovie = response.data.data;
-            set((state) => ( {movies:[...state.movies, newlyAddMovie] }));
+            set((state) => ( {movies : [...state.movies, newlyAddMovie] }));
             console.log(newlyAddMovie)
         }catch(error){
             console.log('Error adding new movie ' , error)

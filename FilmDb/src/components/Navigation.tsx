@@ -10,9 +10,11 @@ type NavigationProps={
 
 
 function Navigation() {
-  const [menuItems, setMenuItems]=useState<NavigationProps[]>([]);
-  const logout=useUserStore((state)=>state.logout);
-  const navigate =useNavigate(); 
+  const [menuItems, setMenuItems] = useState <NavigationProps[] > ([]);
+  const logout = useUserStore((state)=>state.logout);
+  const navigate = useNavigate(); 
+  const user = useUserStore((state) => state.user);
+  const isLogedIn=useUserStore((state) => state.isLogedIn);
 
   useEffect(()=>{
     const fetchMenuItems = async () => {
@@ -36,6 +38,10 @@ function Navigation() {
     logout();
     navigate('/');
   }
+
+  const getInitial = (username:string) => {
+    return username.charAt(0).toUpperCase();
+  }
   return (
    <nav>
 
@@ -45,9 +51,13 @@ function Navigation() {
   <img className="logoImg" src="src/assets/logo.png" alt="" /> </Link>
 
     <div className="user">
-      {menuItems.map( (item, index) => (
-        <a key = {index} href = {item.link} > {item.name} </a>
-      ))}
+      {
+        
+        <span>
+        { isLogedIn && user ?(
+        
+        getInitial(user?.username)):null}
+        </span>}
     </div>
   <ul className='navLinks'>
 
