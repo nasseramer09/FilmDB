@@ -58,8 +58,6 @@ function HomePage(){
 
         const parseUserData : HomePageUserProps = JSON.parse(userData);
 
-        console.log('user data from homepage', parseUserData)
-
         setUser(parseUserData);
 
       }catch(error){

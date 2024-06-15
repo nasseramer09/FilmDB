@@ -28,7 +28,6 @@ function MovieList() {
         }} />
       ))
     }
-    <h1>{movies.length}</h1>
 </> 
     </div>
 
