@@ -37,7 +37,6 @@ const useMovieStore=create<MovieStore>((set, get)=>({
            const reponse = await axios.get('http://localhost:8080/api/keys');
            const apiKey = reponse.data.data;
            set({apiKey});
-           console.log('api key is ',apiKey)
         }catch(error){
             console.log('Error fetching apikey', error);
         }
@@ -51,7 +50,6 @@ const useMovieStore=create<MovieStore>((set, get)=>({
             }
             const movieResponse = await axios.get(`http://localhost:8080/api/movies?key=${state.apiKey}`);
             set({ movies : movieResponse.data.data})
-            console.log(movieResponse.data.data)
         }catch(error){
             console.log('Error fetching movies',error)
         }
@@ -67,7 +65,6 @@ const useMovieStore=create<MovieStore>((set, get)=>({
             const response = await axios.post(`http://localhost:8080/api/movies?key=${state.apiKey}`, movie);
             const newlyAddMovie = response.data.data;
             set((state) => ( {movies : [...state.movies, newlyAddMovie] }));
-            console.log(newlyAddMovie)
         }catch(error){
             console.log('Error adding new movie ' , error)
         }

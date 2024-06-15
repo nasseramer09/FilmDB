@@ -27,7 +27,6 @@ const handleAddMovie = async () => {
         setPoster('');
         setTrailerLink('');
 
-        console.log(title, poster, trailerlink)
         
         navigate('/MovieList')
 
